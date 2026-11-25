@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Story · Uncle Colby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, personal, a family album with a pastor's heart
+   IDEA: an album you page through: each chapter one big photo and a few lines
+   PICTURE: Colby's own photos, large, with soft rounded corners and a quiet caption
+   COLOUR and TYPE: same dusk navy / warm white / sunset coral as the main site; Cormorant + Source Serif 4
+   LAYOUT: dusk-gradient opening band, then alternating photo/text chapters, closing band back to the podcast */
+:root{color-scheme:light dark;
+ --bg:light-dark(#fdfcfb,#15172a);--ink:light-dark(#1f2238,#eceaf2);--soft:light-dark(#5d5f73,#a9a8bd);
+ --leaf:light-dark(#262b45,#1c2036);--leaf2:light-dark(#4b4876,#c9c2e6);--onleaf:#f7f3ee;
+ --gold:light-dark(#a8533a,#f2a88c);--rule:light-dark(#e6e2e8,#2d304a);--card:light-dark(#f7f3f1,#1d2037);
+ --dusk:linear-gradient(160deg,#262b45 0%,#3c3658 55%,#6e4d63 100%)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Source Serif 4",Georgia,serif;overflow-x:clip}
+a{color:inherit}
+h1,h2{font-family:Cormorant,Georgia,serif;font-weight:600;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.5vw,46px);margin-bottom:14px}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(36px,5vw,80px) max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:#262b45;color:var(--onleaf);border-bottom:1px solid #ffffff1f}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px max(5vw,16px)}
+nav b{font:600 21px Cormorant,serif;margin-inline-end:auto}
+nav a{text-decoration:none;font-size:15px;opacity:.9;padding:6px 0}nav a:hover{opacity:1;text-decoration:underline}
+nav a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.open{background:var(--dusk);color:var(--onleaf)}
+.open .wrap{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.open img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 40%;border-radius:50%;border:6px solid #ffffff22}
+.open h1{font-size:clamp(42px,6vw,64px)}
+.open p{font-size:19px;max-width:32em;opacity:.92;margin:18px 0 0}
+.ch{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(32px,5vw,64px);border-top:1px solid var(--rule)}
+.ch:first-child{border-top:0}
+.ch.flip .pics{order:2}
+.pics{display:grid;gap:12px}
+.pics.two{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+figure{margin:0}
+figure img{display:block;width:100%;height:100%;object-fit:cover;border-radius:14px;background:var(--card)}
+.pics.two figure img{aspect-ratio:3/4}
+.pics.two figure:first-child img{aspect-ratio:auto}
+.wide img{aspect-ratio:4/3}
+figcaption{font-size:14px;color:var(--soft);margin-top:8px}
+.no{font:600 15px "Source Serif 4",serif;color:var(--gold);display:block;margin-bottom:6px}
+.ch p{margin:0 0 12px;max-width:34em}
+.facts{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--rule)}
+.facts li{display:grid;grid-template-columns:7em minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.facts span{color:var(--soft)}
+.close{background:var(--card);text-align:center}
+.close p{max-width:36em;margin:14px auto 26px;font-size:19px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:10px 22px;border-radius:999px;background:var(--leaf);color:var(--onleaf);font:600 16px "Source Serif 4",serif;text-decoration:none}
+footer{background:var(--dusk);color:var(--onleaf);font-size:15px}
+footer p{margin:0;opacity:.85}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:760px){.ch,.open .wrap{grid-template-columns:minmax(0,1fr)}.ch.flip .pics{order:0}.open img{max-width:220px}}
+@media (max-width:600px){nav b{flex-basis:100%}.facts li{grid-template-columns:minmax(0,1fr);gap:2px}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+ <b>Uncle Colby</b>
+ <a href="index.html">Podcast home</a><a href="index.html#julian">Julian of Norwich</a><a href="index.html#episodes">Episodes</a>
+</div></nav>
+
+<header class="open band"><div class="wrap">
+ <img src="img/paris.jpg" alt="Uncle Colby in a BYU beanie in front of the Eiffel Tower">
+ <div>
+  <h1>Hi, I'm Uncle Colby.</h1>
+  <p>Husband, dad, finance professor, amateur theologian, and a man who is happiest outside. Here's a little of my life, in pictures.</p>
+ </div>
+</div></header>
+
+<main class="band" style="padding-top:0"><div class="wrap">
+
+ <section class="ch reveal">
+  <div class="pics"><figure class="wide"><img src="img/summit.jpg" alt="Colby, Misty and their four kids on a rocky summit above a lake and forested mountains" loading="lazy"></figure></div>
+  <div>
+   <span class="no">My people</span>
+   <h2>Misty and our four kids</h2>
+   <p>Everything good in my life starts here: my wife, Misty, and our kids, Herbie, Teddy, Donna, and Dash. Some of our best days together have been at the top of a long trail.</p>
+  </div>
+ </section>
+
+ <section class="ch flip reveal">
+  <div class="pics two">
+   <figure><img src="img/moraine.jpg" alt="Colby and Misty sitting together above a turquoise mountain lake" loading="lazy"></figure>
+   <figure><img src="img/blossoms.jpg" alt="The family under blooming cherry trees" loading="lazy"></figure>
+  </div>
+  <div>
+   <span class="no">Side by side</span>
+   <h2>Seeing the world together</h2>
+   <p>Misty and I love finding beautiful places, whether that's a turquoise lake high in the mountains or a spring afternoon under the cherry blossoms with the whole crew.</p>
+  </div>
+ </section>
+
+ <section class="ch reveal">
+  <div class="pics two">
+   <figure><img src="img/cabin.jpg" alt="The family cabin above the lakeshore in Montana, with a bonfire on the hillside" loading="lazy"></figure>
+   <figure><img src="img/rainbow.jpg" alt="A double rainbow over the lake and pines in Montana" loading="lazy"></figure>
+  </div>
+  <div>
+   <span class="no">Montana</span>
+   <h2>The family cabin</h2>
+   <p>Our cabin in Montana is my favorite place on earth: bonfires on the hill, the dock in the evening, and every now and then a double rainbow over the lake.</p>
+  </div>
+ </section>
+
+ <section class="ch flip reveal">
+  <div class="pics two">
+   <figure><img src="img/tetons.jpg" alt="Colby on a rock beside a glacial lake below jagged granite peaks" loading="lazy"></figure>
+   <figure><img src="img/sled.jpg" alt="A snowmobiler in deep powder among snow-covered trees" loading="lazy"></figure>
+  </div>
+  <div>
+   <span class="no">Outside</span>
+   <h2>Happiest on a trail or in the snow</h2>
+   <p>I love to hike, backpack, and canyoneer in the summer, and to ski and snowmobile in the winter. There's something about wild places that makes it easier for me to notice God.</p>
+  </div>
+ </section>
+
+ <section class="ch reveal">
+  <div class="pics"><figure><img src="img/porch.jpg" alt="Colby in a BYU polo, smiling in a red porch chair" loading="lazy" style="aspect-ratio:4/5;max-height:560px"></figure></div>
+  <div>
+   <span class="no">Work and faith</span>
+   <h2>The classroom and the church</h2>
+   <p>I teach finance at BYU. I'm a member of The Church of Jesus Christ of Latter-day Saints with strong ecumenical leanings, and I love learning from Christians of every tradition.</p>
+   <ul class="facts">
+    <li><span>Teaching</span>Finance professor, BYU</li>
+    <li><span>Faith</span>Latter-day Saint, ecumenical at heart</li>
+   </ul>
+  </div>
+ </section>
+
+ <section class="ch flip reveal">
+  <div class="pics"><figure><img src="img/pup.jpg" alt="Colby in a BYU cap hugging King Louie, a fluffy black, white and tan puppy" loading="lazy" style="aspect-ratio:4/5;max-height:560px"></figure></div>
+  <div>
+   <span class="no">One more thing</span>
+   <h2>And King Louie</h2>
+   <p>No family story is complete without the dog. Meet King Louie.</p>
+  </div>
+ </section>
+
+</div></main>
+
+<section class="close band"><div class="wrap">
+ <h2>Why the podcast</h2>
+ <p>I read old books about God out loud because they've brought me peace and grace, and I hope they can do the same for anyone who feels worn out. Come sit with Julian of Norwich for a while.</p>
+ <a class="btn" href="index.html#episodes">Listen to the episodes</a>
+</div></section>
+
+<footer class="band"><div class="wrap"><p>© Uncle Colby · Awesome Books About God and Jesus</p></div></footer>
+
+<script>
+{
+ const els=document.querySelectorAll('.reveal');
+ if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}},{rootMargin:'0px 0px -10% 0px'});els.forEach(el=>io.observe(el))}
+ else els.forEach(el=>el.classList.add('in'));
+}
+</script>
+</body>
+</html>

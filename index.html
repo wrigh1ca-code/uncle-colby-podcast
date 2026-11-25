@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uncle Colby Podcast</title>
+<meta name="description" content="Awesome Books About God and Jesus with Uncle Colby — reading Julian of Norwich's Revelations of Divine Love, one chapter at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: tender, unhurried, welcoming to the discouraged seeker
+   IDEA: a page from a hand-copied devotional book, Julian's hazelnut at its heart
+   PICTURE: the hazelnut held in a ring of light, hazel leaves around it
+   COLOUR and TYPE: dusk navy and twilight plum from the Montana sky photo, warm white pages, sunset-coral accent; Cormorant + Source Serif 4
+   LAYOUT: photo hero of Montana clouds with light rays (option K), white reading pages, episode list as a long margin-ruled register */
+:root{color-scheme:light dark;
+ --bg:light-dark(#fdfcfb,#15172a);--ink:light-dark(#1f2238,#eceaf2);--soft:light-dark(#5d5f73,#a9a8bd);
+ --leaf:light-dark(#262b45,#1c2036);--leaf2:light-dark(#4b4876,#c9c2e6);--onleaf:#f7f3ee;
+ --gold:light-dark(#a8533a,#f2a88c);--rule:light-dark(#e6e2e8,#2d304a);--card:light-dark(#f7f3f1,#1d2037);
+ --dusk:linear-gradient(160deg,#262b45 0%,#3c3658 55%,#6e4d63 100%)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Source Serif 4",Georgia,serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:Cormorant,Georgia,serif;font-weight:600;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(34px,5vw,48px);margin-bottom:18px}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(36px,5vw,80px) max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:#262b45;color:var(--onleaf);border-bottom:1px solid #ffffff1f}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px max(5vw,16px)}
+nav b{font:600 21px Cormorant,serif;margin-inline-end:auto}
+nav a{text-decoration:none;font-size:15px;opacity:.9;padding:6px 0}nav a:hover{opacity:1;text-decoration:underline}
+.hero{position:relative;overflow:hidden;color:#fff;background:#2a3050;min-height:clamp(560px,82vh,780px);display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero-rays{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(28,32,58,.74),rgba(28,32,58,.38) 52%,rgba(28,32,58,0) 75%)}
+.hero-in{position:relative;z-index:1;width:100%}
+.hero-in .wrap>*{max-width:600px}
+.hero .show{color:#f6d48a;font-size:16px;margin:0 0 18px}
+.hero h1{font:italic 500 clamp(36px,5vw,54px)/1.08 Cormorant,Georgia,serif;text-shadow:0 2px 14px rgba(20,20,40,.5)}
+.hero .attr{font-size:15px;opacity:.9;margin:18px 0 26px}
+.hero .btn.solid{color:#3a3550}
+.intro{padding-block:clamp(28px,4vw,48px);background:var(--card);text-align:center}
+.intro p{max-width:40em;margin:0 auto;font-size:19px}
+.nutfig{margin:0 0 30px}.nutfig .nut{max-width:300px;display:block;margin:0 auto}
+.nutfig .nutcap{color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:10px 20px;border-radius:999px;font:600 16px "Source Serif 4",serif;text-decoration:none;border:1.5px solid currentColor}
+.btn.solid{background:var(--onleaf);color:var(--leaf);border-color:var(--onleaf)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:focus-visible,.chip:focus-visible,input:focus-visible,.ep a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.nut{aspect-ratio:1;width:100%;max-width:520px;justify-self:center}
+.nutcap{font:italic 500 21px/1.35 Cormorant,serif;text-align:center;margin:6px auto 0;max-width:22em;opacity:.9}
+.two{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.lede{font-size:19px}
+.big-q{font:italic 500 clamp(26px,3.4vw,36px)/1.2 Cormorant,serif;border-inline-start:3px solid var(--gold);padding-inline-start:22px;margin:0 0 26px}
+.big-q cite{display:block;font:15px "Source Serif 4",serif;font-style:normal;color:var(--soft);margin-top:10px}
+.facts{list-style:none;padding:0;margin:0;border-top:1px solid var(--rule)}
+.facts li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.facts span{color:var(--soft)}
+.progress{margin-top:26px;background:var(--card);border-radius:14px;padding:20px}
+.progress .bar{height:12px;background:var(--rule);border-radius:99px;overflow:hidden;margin:10px 0 6px}
+.progress .bar i{display:block;height:100%;background:linear-gradient(90deg,#e8a08c,#f6d48a);border-radius:99px}
+.progress small{color:var(--soft);font-size:14px}
+.alt{background:var(--card)}
+.me{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.portrait{width:200px;aspect-ratio:1;border-radius:50%;object-fit:cover;object-position:50% 50%;background:var(--leaf2)}
+.story-link{display:inline-flex;align-items:center;min-height:46px;padding:10px 22px;border-radius:999px;background:var(--leaf);color:var(--onleaf);font:600 16px "Source Serif 4",serif;text-decoration:none;margin-top:6px}
+.note{font-size:14px;color:var(--soft);margin-top:14px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 26px}
+.tools input{flex:1 1 260px;min-height:46px;font:16px "Source Serif 4",serif;padding:10px 16px;border:1.5px solid var(--rule);border-radius:999px;background:var(--bg);color:var(--ink)}
+.chip{min-height:44px;padding:8px 18px;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--ink);font:15px "Source Serif 4",serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--leaf);color:var(--onleaf);border-color:var(--leaf)}
+.count{color:var(--soft);font-size:15px;margin-inline-start:auto}
+.list{list-style:none;padding:0;margin:0}
+.ep{display:grid;grid-template-columns:5.2em minmax(0,1fr) auto;gap:8px 24px;align-items:center;padding:24px 0;border-top:1px solid var(--rule)}
+.ep .no{font:600 15px "Source Serif 4",serif;color:var(--gold);line-height:1.3}
+.ep .no small{display:block;color:var(--soft);font-weight:400;font-size:13px}
+.ep h3{font-size:clamp(25px,3vw,32px);font-weight:600}
+.ep .meta{font-size:14px;color:var(--soft);margin-top:6px}
+.ep blockquote{margin:12px 0 0;font:italic 500 21px/1.35 Cormorant,serif;color:var(--leaf2)}
+:root[data-theme=dark] .ep blockquote{color:#c9c2e6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .ep blockquote{color:#c9c2e6}}
+.ep blockquote cite{display:block;margin-top:4px;font:14px "Source Serif 4",serif;font-style:normal;color:var(--soft)}
+.ep .go{display:flex;gap:8px}
+.ep .go a{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--rule);text-decoration:none;font-size:15px;white-space:nowrap}
+.ep .go a:hover{border-color:var(--leaf2)}
+.ep .go svg{width:16px;height:16px}
+.reveal h3,.reveal blockquote{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal blockquote{transition-delay:.18s}
+.reveal.in h3,.reveal.in blockquote{opacity:1;transform:none}
+.empty{padding:30px 0;color:var(--soft);border-top:1px solid var(--rule)}
+footer{background:var(--dusk);color:var(--onleaf);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center}
+footer p{margin:0;opacity:.85}
+@media (max-width:820px){.two{grid-template-columns:minmax(0,1fr)}.hero::after{background:rgba(28,32,58,.55)}}
+@media (max-width:600px){nav .wrap{gap:2px 16px}nav b{flex-basis:100%}
+ .me{grid-template-columns:minmax(0,1fr)}.portrait{width:140px}
+ .ep{grid-template-columns:minmax(0,1fr)}.ep .go a{flex:1;justify-content:center}
+ .facts li{grid-template-columns:minmax(0,1fr);gap:2px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal h3,.reveal blockquote{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+ <b>Uncle Colby</b>
+ <a href="#julian">Julian of Norwich</a><a href="#episodes">Episodes</a><a href="#about">About Uncle Colby</a>
+</div></nav>
+
+<header class="hero">
+ <img class="hero-bg" src="img/glow.jpg" alt="">
+ <svg class="hero-rays" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><filter id="b4" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+<filter id="b6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="b8" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+<filter id="b20" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+<radialGradient id="rk" cx="900" cy="-40" r="800" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe9c4" stop-opacity="1"/><stop offset="1" stop-color="#ffe9c4" stop-opacity="0"/></radialGradient>
+<radialGradient id="gk" cx="900" cy="-40" r="380" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff4d8" stop-opacity=".85"/><stop offset="1" stop-color="#fff4d8" stop-opacity="0"/></radialGradient></defs>
+<g fill="url(#rk)" opacity="0.9" filter="url(#b8)"><polygon points="900,-40 1435,639 1400,665" opacity="0.40"/><polygon points="900,-40 1227,523 1189,543" opacity="0.68"/><polygon points="900,-40 1176,554 1133,572" opacity="0.41"/><polygon points="900,-40 1090,607 1025,623" opacity="0.50"/><polygon points="900,-40 1017,789 927,797" opacity="0.61"/><polygon points="900,-40 851,898 810,895" opacity="0.54"/><polygon points="900,-40 814,696 778,691" opacity="0.88"/><polygon points="900,-40 699,796 632,777" opacity="0.59"/><polygon points="900,-40 636,556 610,543" opacity="0.48"/><polygon points="900,-40 514,595 470,566" opacity="0.73"/><polygon points="900,-40 334,680 291,644" opacity="0.80"/><polygon points="900,-40 328,547 283,498" opacity="0.92"/><polygon points="900,-40 98,528 65,478" opacity="0.43"/><polygon points="900,-40 308,303 278,246" opacity="0.67"/></g>
+<rect width="1280" height="720" fill="url(#gk)"/></svg>
+ <div class="hero-in band"><div class="wrap">
+  <p class="show">Awesome Books About God and Jesus with Uncle Colby</p>
+  <h1>“My love, I’m so happy you’ve come to me; I have been with you through it all.”</h1>
+  <p class="attr">Julian of Norwich, chapter 40 · Uncle Colby’s translation</p>
+  <div class="btns">
+   <a class="btn solid" href="https://podcasts.apple.com/us/podcast/awesome-books-about-god-and-jesus-with-uncle-colby/id1753998154"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="9" r="3"/><path d="M10.6 13.5h2.8l-.6 8h-1.6zM5.5 15A8 8 0 1 1 18.5 15l-1.3-1A6.4 6.4 0 1 0 6.8 14z"/></svg>Apple Podcasts</a>
+   <a class="btn" href="https://podcasters.spotify.com/pod/show/uncle-colby"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.5c3.5-1 7-.6 10 1M7.6 12.8c2.8-.7 5.6-.4 8 .9M8.3 15.9c2.2-.5 4.2-.3 6 .7"/></svg>Spotify</a>
+  </div>
+ </div></div>
+</header>
+
+<section class="intro band"><div class="wrap">
+ <p>Slow, honest reading of the great books about God, for discouraged but earnest seekers. Each episode has about ten minutes of reading, followed by reflections on what it might mean for you. Season one is Julian of Norwich's <i>Revelations of Divine Love</i>.</p>
+</div></section>
+
+<section id="julian" class="band"><div class="wrap two">
+ <div>
+  <h2>Julian of Norwich and <i>Revelations of Divine Love</i></h2>
+  <p class="lede">In May 1373, a thirty-year-old woman in Norwich, England lay so ill that a priest was called to give her last rites. As he held a crucifix before her, she received a series of sixteen visions, which she called “showings,” of Christ's suffering and of God's love. She recovered, and spent the rest of her long life thinking about what she had seen.</p>
+  <p>She became an anchoress, living in a small cell attached to the Church of St Julian in Norwich, praying and offering counsel through a window to anyone who came. We don't know her real name. She is remembered by the name of her church.</p>
+  <p>She wrote her visions down twice: first in a short account, and then, after some twenty years of prayer, in a much longer version of 86 chapters. That book, <i>Revelations of Divine Love</i>, is thought to be the earliest surviving book in English written by a woman. It is gentle, daring, and full of hope. In it, God holds all of creation like a hazelnut in the palm of the hand. There is no anger in God, sin is met with compassion, and in the end all shall be well.</p>
+  <p>This season of the podcast reads the long version chapter by chapter, slowly enough to let each one sink in. Uncle Colby is writing his own modern English translation as he goes, and the quotes on this site come from it.</p>
+ </div>
+ <aside>
+ <figure class="nutfig">
+  <svg class="nut" viewBox="0 0 400 400" role="img" aria-label="A hazelnut in its husk, glowing in a ring of light, with hazel leaves around it">
+   <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff6d8" stop-opacity=".55"/><stop offset=".6" stop-color="#f3d58a" stop-opacity=".18"/><stop offset="1" stop-color="#f3d58a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="shell" cx="38%" cy="35%" r="70%"><stop offset="0" stop-color="#d79a4a"/><stop offset=".55" stop-color="#9c5f22"/><stop offset="1" stop-color="#5e3410"/></radialGradient>
+    <linearGradient id="husk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8cf7a"/><stop offset="1" stop-color="#6f8f3c"/></linearGradient>
+    <linearGradient id="leafg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fa35a"/><stop offset="1" stop-color="#3e6332"/></linearGradient>
+    <path id="leaf" d="M0 0C30-28 82-30 118 0C82 30 30 28 0 0Z"/>
+   </defs>
+   <circle cx="200" cy="205" r="190" fill="url(#glow)"/>
+   <circle cx="200" cy="205" r="150" fill="none" stroke="#f3d58a" stroke-opacity=".35" stroke-width="1.5"/>
+   <circle cx="200" cy="205" r="122" fill="none" stroke="#f3d58a" stroke-opacity=".2" stroke-width="1"/>
+   <g fill="url(#leafg)" stroke="#2a4422" stroke-opacity=".5">
+    <use href="#leaf" transform="translate(170 150) rotate(-150) scale(1.05)"/>
+    <use href="#leaf" transform="translate(232 152) rotate(-32) scale(.95)"/>
+    <use href="#leaf" transform="translate(150 290) rotate(160) scale(.7)"/>
+   </g>
+   <g stroke="#2a4422" stroke-opacity=".45" fill="none" stroke-width="1.2">
+    <path d="M170 150l-95-52M232 152l92-58M150 290l-75 26"/>
+   </g>
+   <ellipse cx="206" cy="326" rx="70" ry="10" fill="#0b160a" opacity=".35"/>
+   <path d="M200 170c52 0 74 46 70 86-4 42-34 68-70 68s-66-26-70-68c-4-40 18-86 70-86z" fill="url(#shell)"/>
+   <path d="M158 210c6-22 22-34 40-36" stroke="#f6d39b" stroke-opacity=".7" stroke-width="5" stroke-linecap="round" fill="none"/>
+   <path d="M136 196c10-40 34-58 64-58s54 18 64 58c-14-8-22-22-30-12-8-14-20-16-34-4-14-12-26-10-34 4-8-10-16 4-30 12z" fill="url(#husk)" stroke="#40601f" stroke-width="1.5"/>
+   <path d="M200 138c0-12 4-22 12-30" stroke="#5c7a2e" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </svg>
+  <figcaption class="nutcap">“It will not fall; it will last forever, eternally, because God loves it.”<br><small style="font-size:14px;font-style:normal">Julian of Norwich on the hazelnut, chapter 5 · Uncle Colby’s translation</small></figcaption>
+ </figure>
+  <p class="big-q">“All will be made well, and all will be well, and every single thing in all places shall be well.”<cite>Chapter 27 · Uncle Colby’s translation</cite></p>
+  <p class="big-q">“I am free to make all things well, I am able to make all things well, I intend to make all things well, and I shall, in very fact, make all things well.”<cite>Chapter 31 · Uncle Colby’s translation</cite></p>
+  <ul class="facts">
+   <li><span>Lived</span>c. 1343 – after 1416</li>
+   <li><span>Where</span>Norwich, England</li>
+   <li><span>Visions</span>Sixteen showings, May 1373</li>
+   <li><span>The book</span>A short text, and a long text of 86 chapters</li>
+  </ul>
+  <div class="progress" id="prog"></div>
+ </aside>
+</div></section>
+
+<section id="episodes" class="band" style="border-top:1px solid var(--rule)"><div class="wrap">
+ <h2>Episodes</h2>
+ <div class="tools">
+  <input id="q" type="search" placeholder="Search episodes, chapters or guests" aria-label="Search episodes">
+  <button class="chip" data-f="all" aria-pressed="true">All</button>
+  <button class="chip" data-f="ch" aria-pressed="false">Chapters</button>
+  <button class="chip" data-f="b" aria-pressed="false">Bonus &amp; guests</button>
+  <button class="chip" id="order" aria-pressed="false">Oldest first</button>
+  <span class="count" id="count"></span>
+ </div>
+ <ol class="list" id="list"></ol>
+</div></section>
+
+<section id="about" class="band alt"><div class="wrap me">
+ <img class="portrait" src="img/headshot.jpg" alt="Uncle Colby, smiling, with a Montana lake and mountains behind him">
+ <div>
+  <h2>About Uncle Colby</h2>
+  <p class="lede">By day I'm a finance professor at BYU. By night I'm an amateur theologian with a special interest in the women mystics of the Middle Ages, with Julian of Norwich chief among them. I'm a member of The Church of Jesus Christ of Latter-day Saints with strong ecumenical leanings, and I find a great deal of light across the wider Christian tradition, especially in voices like Julian's.</p>
+  <p>My favorite people are my wife, Misty, and our four kids: Herbie, Teddy, Donna, and Dash. My favorite places are outside. I love to snowmobile, ski, canyoneer, hike, and backpack, and nothing beats time at our family cabin in Montana.</p>
+  <p>I started this podcast for discouraged but earnest seekers: people who love God but feel worn out, and who are looking for more peace and grace. Each episode, I read about ten minutes from the book, then share what stands out to me, sometimes with a friend joining the conversation. You don't need any background, and you don't need to have it all figured out. Come as you are.</p>
+  <a class="story-link" href="story.html">See my story in pictures</a>
+ </div>
+</div></section>
+
+<footer class="band"><div class="wrap">
+ <p>© Uncle Colby · Awesome Books About God and Jesus</p>
+ <p><a href="https://podcasts.apple.com/us/podcast/awesome-books-about-god-and-jesus-with-uncle-colby/id1753998154">Apple Podcasts</a> · <a href="https://podcasters.spotify.com/pod/show/uncle-colby">Spotify</a></p>
+</div></footer>
+
+<script>
+{
+/* Episode data. Format: episode | chapter | title | date | Apple id | Spotify slug | guest | quote
+   Quotes are from Uncle Colby's translation. Prefix with 'N::' when the quote comes from a different chapter than the episode. */
+const RAW=`45|45|Finding Peace When Our Experiences and Views Don't Fully Align with Holy Church|2026-11-15|1000802120706|Ep--45---Chapter-45-Finding-Peace-When-Our-Experiences-and-Views-Dont-Fully-Align-with-Holy-Church-e3se9se|Mark Ellison|God judges us by seeing through our outer layers and affixing His gaze upon our true essence.
+44|44|You Were Loved Into Existence|2026-09-20|1000790822093|Ep--44---Chapter-44-You-Were-Loved-Into-Existence-e3p4tfo||Where truth and wisdom are, truly there is love.
+B|·|Deepening and Expanding Our Prayer Practices|2026-08-19|1000784200011|--Bonus-Episode---Deepening-and-Expanding-Our-Prayer-Practices-e3nja6r||41::Prayer is the fresh, gracious, abiding union of our will to God’s will.
+43|43|Every Step is a Prayer|2026-07-06|1000775679401|Ep--43---Chapter-43-Every-Step-is-a-Prayer-e3lnlq7|Jeffrey Benson|Whenever our needs drive us to pray, our good Lord follows us into prayer, strengthening our desire.
+42|42|Secure Attachment with God|2026-06-01|1000770598545|Ep--42---Chapter-42-Secure-Attachment-with-God-e3k6f2b||If we do what we can, and sincerely ask for grace and mercy, we will find in God all that fails in ourselves.
+41|41|Prayer is…|2026-04-15|1000761657645|Ep--41---Chapter-41-Prayer-is-e3hvg20||Your prayers are especially sweet to me when your soul is parched and desolate.
+40|40|The Subtle, Interior Presence of the Divine|2026-03-25|1000757329127|Ep--40---Chapter-40-The-Subtle--Interior-Presence-of-the-Divine-e3gv7hf|Craig Merrill|My love, I’m so happy you’ve come to me; I have been with you through it all.
+39|39|Sin is the Sharpest of All Whips|2026-02-13|1000749538116|Ep--39---Chapter-39-Sin-is-the-Sharpest-of-All-Whips-e3f1cp4||God sees the scars not so much as wounds but as badges of honor.
+38|38|Your Sin Will Carry No Shame|2026-01-13|1000745001524|Ep--38---Chapter-38-Your-Sin-Will-Carry-No-Shame-e3djffv||God showed me that sin will at last carry no shame but will, instead, bring honor to humanity.
+37|37|Everything Has Been “Nirvanized”|2025-12-05|1000739889160|Ep--37---Chapter-37-Everything-Has-Been-Nirvanized-e3buh4p||I hold you in complete security.
+B|·|If You Don't Plan on Winning, What's the Point?|2025-11-14|1000736794838|--Bonus-Episode-with-Marci-Orchard-If-You-Dont-Plan-on-Winning--Whats-the-Point-e3avsvf|Marci Orchard|
+36|36|Holding Space for Deep Sorrow and Abiding Joy|2025-10-17|1000732311115|Ep--36---Chapter-36-Holding-Space-for-Deep-Sorrow-and-Abiding-Joy-e39lqpl||Dearest child, let go of all this misdirected affection, and turn to me. I am enough for you.
+35|35|The Fulness of Joy is to See God in All Things|2025-09-15|1000726976753|Ep--35---Chapter-35-The-Fulness-of-Joy-is-to-See-God-in-All-Things-e3895bs||To see God in all things constitutes greater worship than to see God in any specific thing.
+34|34|Jesus is the Church|2025-08-23|1000723234369|Ep--34---Chapter-34-Jesus-is-the-Church-e377gfo||I enthusiastically hope that all those who seek shall find because God is what they seek.
+33|33|God's Not Done Yet!|2025-07-18|1000718016765|Ep--33---Chapter-33-Gods-Not-Done-Yet-e35o3d8||We especially need to learn to reverence the deeds He will yet perform.
+32|32|You Matter! And What to Do With Church Teachings and Ideas That Are Troubling|2025-06-08|1000712023308|Ep--32---Chapter-32-You-Matter--And---What-to-Do-With-Church-TeachingsIdeas-that-are-Troubling-e33vgqc||Even the smallest and most insignificant thing will not be forgotten nor excluded.
+B|·|Finding God in Our Personal Gethsemane|2025-05-08|1000706797076|--Bonus-Episode-with-Ramon-Roberts-Finding-God-in-Our-Personal-Gethsemane-e32hkie|Ramon Roberts|
+31|31|Saying Yes to God's Love|2025-04-29|1000705471355|Ep--31---Chapter-31-Saying-Yes-to-Gods-Love-e3262df||We must respond to this longing inside Christ with a reciprocal longing of our own.
+30|30|God Invites Us to Let Go of the Pursuit of Hidden Truths|2025-04-10|1000703037828|Ep--30---Chapter-30-God-Invites-Us-to-Let-Go-of-the-Pursuit-of-Hidden-Truths-e31c9gr||In truth, we are all one in God’s vision.
+29|29|God Speaks to Us on Our Level|2025-03-22|1000700355465|Ep--29---Chapter-29-God-Speaks-to-Us-on-Our-Level-e30gl30||Seeing that I have made well the most harm that ever befell the world, it is My will that you know I will assuredly make well all that is less harmful.
+28|28|We Never Suffer Alone|2025-02-26|1000696127502|Ep--28---Chapter-28-We-Never-Suffer-Alone-e2vd40m||He looks upon us with sympathy and mercy as if we were innocent children without any malice.
+27|27|All Will Be Made Well|2025-01-18|1000684497365|Ep-27---Chapter-27-All-Will-be-Made-Well-with-Kelly-Russell-e2tlk14|Kelly Russell|These words were said with overwhelming tenderness, without even a hint of blame towards me or anyone else.
+26|26|Jesus is Our All|2025-01-09|1000683255981|Ep--26---Chapter-26-Jesus-is-Our-All-e2t8fi4||I’m the one you yearn for, I’m the one you desire, I’m the one that is your purpose, I’m the one that is your all.
+B|·|A Conversation with Craig Merrill|2024-12-14|1000680385395|--Bonus-Episode-with-Craig-Merrill-e2sb60t|Craig Merrill|
+25|25|“Mary” Christmas|2024-12-11|1000680034742|Ep--25---Chapter-25-Mary-Christmas-e2s6thk||Can you see in her how much you are loved?
+24|24|Jesus Invites Us Into His Soul Through the Wound in His Side|2024-11-25|1000678193658|Ep--24---Chapter-24-Jesus-Invites-Us-Into-His-Soul-Through-the-Wound-in-His-Side-e2rfuj4||Oh, how I have loved you!
+23|23|God Wishes for You to Be Mightily Comforted & Strengthened|2024-11-08|1000676256756|Ep--23---Chapter-23-God-Wishes-for-You-to-be-Mightily-Comforted--Strengthened-e2qo58h||Jesus wants us to enjoy and rejoice in our salvation, right here and right now.
+22|22|Christ Would Die a Thousand Deaths for You|2024-11-01|1000675370151|Ep--22---Chapter-22-Christ-Would-Die-a-Thousand-Deaths-for-You-e2qecun||If I could have suffered more for you, I would have done it.
+21|21|We Are All on the Cross with Jesus|2024-10-24|1000674236174|Ep--21---Chapter-21-We-Are-All-On-the-Cross-with-Jesus-e2q2n51||Is there now any point to the pain or grief?
+20|20|All Your Sorrow Will Be Transformed Into Joy|2024-10-19|1000673704316|Ep--20---Chapter-20-All-Your-Sorrow-Will-Be-Transformed-Into-Joy-e2psvmn||Now, He is risen from the dead and can no more die, and yet, He still suffers with us.
+19|19|I Chose Jesus as My Heaven|2024-10-15|1000673103502|Ep--19---Chapter-19-I-Chose-Jesus-as-My-Heaven-e2pmbpt||No, I can’t look away: for You are my Heaven.
+18|18|All of Creation Loves Its Creator|2024-10-10|1000672437294|Ep--18---Chapter-18-All-of-Creation-Loves-Its-Creator-e2pf19t||I saw at this point what I understood to be an indescribable oneness between Christ and our own souls.
+17|17|Hell is the Pain of Despair|2024-10-02|1000671569841|Ep--17---Chapter-17-Hell-is-the-Pain-of-Despair-e2p54ts||Of all the pains that lead to salvation this is the most intense: to watch the one you love suffer.
+16|16|The All-Vulnerable God|2024-09-26|1000670816680|Ep--16---Chapter-16-The-All-Vulnerable-God-e2otegl||As long as there was any spirit left in Christ’s flesh, he suffered this astonishing pain.
+15|15|Held Securely in Grace and Grief|2024-09-23|1000670346450|Ep--15-with-Kelly-Russell---Chapter-15-Held-Securely-in-Grace-and-Grief-e2oo1kd|Kelly Russell|Even when we are in a state of suffering or fatigue or annoyance or negativity, God still holds us tightly and securely.
+14|14|Eternal Thanks from God|2024-09-19|1000670101654|Ep--14---Chapter-14-Eternal-Thanks-from-God-e2ok7rp||Thank you for your efforts and struggles and especially for the devotion of your youth.
+13|13|There is No Anger in God|2024-09-17|1000669773622|Ep--13---Chapter-13-There-is-No-Anger-in-God-e2og93q||I saw our Lord laugh at the malice of the Fiend and entirely disregard his power, or rather lack thereof. And He wants us to do the same.
+12|12|His Blood Washes Away Our Sins|2024-09-12|1000669229646|Ep--12---Chapter-12-His-Blood-Washes-Away-Our-Sins-e2oa102||Consider also, that His blood is our blood.
+11|11|God is the Doer of All That is Done|2024-09-10|1000668966877|Ep--11---Chapter-11-God-is-the-Doer-of-All-that-is-Done-e2o76j8||See! I never remove my hand or step back from my creation, and I never will!
+10|10|Searching is Just as Good as Finding|2024-09-06|1000668640790|Ep--10---Chapter-10-Searching-is-Just-as-Good-as-Finding-e2o3a3k||I both had Him and yet longed to have more of Him at the same time.
+9|9|We Hold All of Creation Inside Us|2024-09-04|1000668248186|Ep--9---Chapter-9-We-Hold-All-of-Creation-Inside-Us-e2nvmb7||To love God is to love all that God created.
+8|8|Everything Looks Small Next to God|2024-08-28|1000666954165|Ep--8---Chapter-8-Everything-Looks-Small-Next-to-God-e2no0f5||Once a soul sets its eyes on the Creator everything else seems tiny by comparison.
+7|7|God's Incomprehensible Friendship and Kindness|2024-08-27|1000666725751|Ep--7---Chapter-7-Gods-Incomprehensible-Friendship-and-Kindness-e2nld20||He who is highest and mightiest, most royal, and most worthy is simultaneously the lowest, and meekest, and most humble, and most friendly toward us.
+6|6|God Has NO Spite|2024-08-23|1000666409385|Ep--6---Chapter-6-God-Has-NO-Spite-e2nhu0v||Our natural and most instinctive will is to have God, and the Good Will of God is, likewise, to have us!
+5|5|God's Love is the Skin to Our Souls|2024-08-22|1000666193261|Ep--5---Chapter-5-Gods-Love-is-the-Skin-to-Our-Souls-e2nfigb||He is the very clothes upon our skin that, through love, wrap around us and cover us and hold us in tender love.
+4|3 & 4|God is Our Eternal Love and Joy|2024-08-20|1000666023153|Ep--4---Chapters-3--4-God-is-Our-Eternal-Love-and-Joy-e2ndlfq||The Trinity is our everlasting love, our everlasting joy, and our everlasting delight through our Lord Jesus Christ.
+3|2|3 Wishes|2024-08-08|1000664771580|Ep--3---Chapter-2-3-Wishes-e2mvq1f||The deepest desire of my heart is simply that Your will be done.
+2|1|An Overview of the 16 Visions|2024-08-08|1000664764260|Ep--2---Chapter-1-An-Overview-of-the-16-Visions-e2mvm4g||This is a Revelation of Love that Jesus Christ, our endless delight, made in Sixteen Visions.
+1|Intro|Introduction to Awesome Books About God and Jesus|2024-07-01|1000660212075|Ep--1---Introduction-to-Awesome-Books-about-God-and-Jesus-with-Uncle-Colby-e2la10h||8::It is God’s good will and pleasure that you accept this revelation with joy and satisfaction, as if Jesus had showed it to you personally and directly.`;
+
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const SP='https://podcasters.spotify.com/pod/show/uncle-colby/episodes/Revelations-of-Divine-Love-';
+const AP='https://podcasts.apple.com/us/podcast/id1753998154?i=';
+const fmt=new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'});
+const eps=RAW.split('\n').map((l,i)=>{const [n,ch,t,d,a,s,g,q0]=l.split('|');const qq=(q0||'').trim().split('::');const q=qq.pop(),qc=qq[0]||(/^\d+$/.test(ch)||ch.includes('&')?ch:'');return{i,n,ch,t,d,a,s,g,q,qc,bonus:n==='B'}});
+const appleIco='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="9" r="3"/><path d="M10.6 13.5h2.8l-.6 8h-1.6zM5.5 15A8 8 0 1 1 18.5 15l-1.3-1A6.4 6.4 0 1 0 6.8 14z"/></svg>';
+const spIco='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.5c3.5-1 7-.6 10 1M7.6 12.8c2.8-.7 5.6-.4 8 .9M8.3 15.9c2.2-.5 4.2-.3 6 .7"/></svg>';
+
+const latest=eps.filter(e=>!e.bonus)[0];
+document.getElementById('prog').innerHTML=`<strong>Where we are:</strong> chapter ${esc(latest.ch)} of 86
+ <div class="bar" role="img" aria-label="${Math.round(latest.ch/86*100)} percent of the book"><i style="width:${(latest.ch/86*100).toFixed(1)}%"></i></div>
+ <small>${eps.length} episodes so far, including ${eps.filter(e=>e.bonus).length} bonus conversations</small>`;
+
+let filt='all',old=false;
+const list=document.getElementById('list'),q=document.getElementById('q'),count=document.getElementById('count');
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}},{rootMargin:'0px 0px -12% 0px'}):null;
+
+const render=()=>{
+ const term=q.value.trim().toLowerCase();
+ let rows=eps.filter(e=>(filt==='all'||(filt==='b')===e.bonus)&&(!term||[e.t,e.g,e.q,e.ch,'episode '+e.n,'chapter '+e.ch].join(' ').toLowerCase().includes(term)));
+ if(old)rows=rows.slice().reverse();
+ count.textContent=rows.length===eps.length?`${rows.length} episodes`:`${rows.length} of ${eps.length}`;
+ list.innerHTML=rows.length?rows.map(e=>`<li class="ep reveal">
+  <div class="no">${e.bonus?'Bonus':'Ep. '+esc(e.n)}<small>${e.bonus||e.ch==='Intro'?(e.bonus?'Conversation':'Welcome'):(e.ch.includes('&')?'Chapters ':'Chapter ')+esc(e.ch)}</small></div>
+  <div><h3>${esc(e.t)}</h3>
+   <div class="meta">${fmt.format(new Date(e.d))}${e.g?' · with '+esc(e.g):''}</div>
+   ${e.q?`<blockquote>“${esc(e.q)}”<cite>Julian${e.qc?(e.qc.includes('&')?', chapters ':', chapter ')+esc(e.qc):''} · Uncle Colby’s translation</cite></blockquote>`:''}</div>
+  <div class="go"><a href="${AP+esc(e.a)}" aria-label="Listen on Apple Podcasts: ${esc(e.t)}">${appleIco}Apple</a><a href="${SP+esc(e.s)}" aria-label="Listen on Spotify: ${esc(e.t)}">${spIco}Spotify</a></div>
+ </li>`).join(''):'<li class="empty">No episodes match that search.</li>';
+ for(const li of list.querySelectorAll('.reveal'))io?io.observe(li):li.classList.add('in');
+};
+for(const b of document.querySelectorAll('.chip[data-f]'))b.addEventListener('click',()=>{filt=b.dataset.f;for(const c of document.querySelectorAll('.chip[data-f]'))c.setAttribute('aria-pressed',c===b);render()});
+const ob=document.getElementById('order');
+ob.addEventListener('click',()=>{old=!old;ob.setAttribute('aria-pressed',old);render()});
+q.addEventListener('input',render);
+render();
+}
+</script>
+</body>
+</html>
